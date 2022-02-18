@@ -32,10 +32,11 @@
 
 
 			const LG_COL=4;
-			
-			var colwidth = parseInt(parseInt($("body").css("width")) / (12 / LG_COL) - 20);
-			if(parseInt($("body").css("width"))<700)			
-				colwidth=$("body").css("width") - 20;
+			var screen_width=parseInt($("body").css("width"));
+			var colwidth = parseInt(screen_width / (12 / LG_COL)) - 20;
+			if(screen_width<700)			
+				colwidth=screen_width - 40;
+
 			var template={'fb':'<div class="fb-page" data-href="https://www.facebook.com/{mypage}" data-tabs="timeline" data-width="{mywidth}" data-height="600" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/{mypage}" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/{mypage}">{mypage}</a></blockquote></div>',
 						  'twit':'<a class="twitter-timeline" data-width="{mywidth}" data-height="600" href="https://twitter.com/{mypage}?ref_src=twsrc%5Etfw">Tweets by {mypage}</a>'
 						  };
@@ -51,7 +52,7 @@
 					 $("#"+sf_inx+"_content").append(newRow);
 					 newRow = $("<div class='row'>").prepend("<hr/>");
 					}
-					var newCol = $("<div class='col col-lg-"+LG_COL+"'>");
+					var newCol = $("<div class='col-xs-12 col-sm-12 col-lg-"+LG_COL+"'>");
 					newCol.append(template[sf_inx].replaceAll("{mypage}",value).replaceAll("{mywidth}",colwidth));
 					newRow.append(newCol);
 				});
@@ -144,7 +145,7 @@
 	  <div><h4>Twitter</h4><textarea rows="10" data-sf="twit" class="form-control setting"></textarea></div>
 	  <div><button class="btn btn-warning" id="save_btn">儲存</button></div>
 	</div>
-	<span style="font-size:30px;cursor:pointer ;float: right;" onclick="openNav()">&#9776; 設定</span>
+	<span style="font-size:18px;cursor:pointer ;float: right;" onclick="openNav()">&#9776; 設定</span>
 
 	<div id="fb-root" ></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v13.0" nonce="5H8DrVjG"></script>
