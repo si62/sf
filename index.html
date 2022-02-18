@@ -32,8 +32,9 @@
 
 
 			const LG_COL=4;
+			
 			var colwidth = parseInt(parseInt($("body").css("width")) / (12 / LG_COL) - 20);
-			if($("body").css("width")<700)			
+			if(parseInt($("body").css("width"))<700)			
 				colwidth=$("body").css("width") - 20;
 			var template={'fb':'<div class="fb-page" data-href="https://www.facebook.com/{mypage}" data-tabs="timeline" data-width="{mywidth}" data-height="600" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/{mypage}" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/{mypage}">{mypage}</a></blockquote></div>',
 						  'twit':'<a class="twitter-timeline" data-width="{mywidth}" data-height="600" href="https://twitter.com/{mypage}?ref_src=twsrc%5Etfw">Tweets by {mypage}</a>'
